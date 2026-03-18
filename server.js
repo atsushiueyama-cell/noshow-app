@@ -12,7 +12,9 @@ const upload = multer({ storage: multer.memoryStorage() });
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 // ===== CSVアップロードAPI =====
 // CSVフォーマット例（ヘッダーなし）:
 //   A001,2026-03-05
